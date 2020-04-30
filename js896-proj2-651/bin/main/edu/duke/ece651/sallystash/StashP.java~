@@ -1,0 +1,5 @@
+package edu.duke.ece651.sallystash;
+
+public class StashP extends Stash {
+  public StashP() {}
+}

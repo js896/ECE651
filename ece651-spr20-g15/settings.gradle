@@ -1,0 +1,3 @@
+include ":server", ":shared", ":testGUI"
+rootProject.name = 'evolution2'
+

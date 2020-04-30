@@ -1,0 +1,53 @@
+1.
+Task: Read README get a general idea about what is required and design the data structure to store data
+Estimated Time:  48 hours
+Target Deadline:  2.3
+Actual Time:  48 hours
+Actual Delivery: as expected
+Commit ID: 094eba8e
+Comments: first working part
+
+2.
+Task: Finish everything before getSourceCode(including getSourceCode)
+Estimated Time:  24 hours
+Target Deadline:  2.4
+Actual Time: 24 hours
+Actual Delivery: as expected
+Commit ID: b099a1e9
+Comments: getSourceCode 1st version
+
+3.
+Task: Finished createAllClasses
+Estimated Time: 5 hours
+Target Deadline: 2.4
+Actual Time: 5 hours
+Actual Delivery: as expected
+Commit ID: 319344ce 
+Comments: createAllClass
+
+4.
+Task: Design templates for serialization and deserialization
+Estimated Time:  24 hours
+Target Deadline: 2.5
+Actual Time: 24 hours
+Actual Delivery: as expected
+Commit ID: 0efc8103 
+Comments: output templates
+
+5.
+Task:  serialization
+Estimated Time: 24 hours
+Target Deadline: 2.6
+Actual Time: 48 hours
+Actual Delivery: 2.7
+Commit ID: cc3187a9 
+Comments: try serialization
+
+6. 
+Task: deserialization
+Estimated Time: 24 hours
+Target Deadline: 2.7
+Actual Time: 48 hours
+Actual Delivery: 2.8
+Commit ID: 7b41e828
+Comments: my shitty hw1, can only pass empty and simple

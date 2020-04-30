@@ -1,0 +1,14 @@
+Defender.java:
+Defender.java is not used anywhere. This class should be deleted.
+
+Action.java:
+Variable naming “attribute[4]” in method execute() is ambiguous.
+getAttackRes method is not necessarily to be an abstract function as it is only used in Attack.java. It can be Attack’s own function.
+getLow and getHigh are redundant in finding the lowest and highest level unit.
+
+Attack.java
+The field is better be initialized in constructor.
+It’s better to give a concrete meaning for each attribute. Try to avoid naming like “attribute[4]”.
+
+Move.java
+getAttackRes() is a redundant class.

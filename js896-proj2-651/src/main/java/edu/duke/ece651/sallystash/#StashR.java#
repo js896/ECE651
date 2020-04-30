@@ -1,0 +1,7 @@
+package edu.duke.ece651.sallystash;
+
+public class StashR extends Stash{
+  pubilc StashR(int vert, int hori, cha) {
+    
+  }
+}

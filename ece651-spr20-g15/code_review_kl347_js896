@@ -1,0 +1,15 @@
+**review for GamePlay.java**
+
+This class is for the initialization of the game on the server side. At first look, the code looks clean and well-organised. 
+
+1. Kaidi is using littel camel-case to name methods and variables, makes them self-explaining, which is very good.
+
+2. Kaidi is also try-catch to handle socket connection exceptions, it is a very practic since it would give reader of the code a clear understanding of what might go wrong.
+
+**review for code under directory testGUI**
+
+1. The "Listener" methods of the file playRoom.java repeats too much code. There could be a parent for these "Listener" methods nd let these children listeners inherit those repeated code.
+
+**review for Client.java and serialize.java under directory ece651-spr20-g15/shared/src/main/java/edu/duke/ece651**
+
+1. The method PlayerSerialization of serialize.java has repeated code at appending units information to the StringBuilder "ans", this part of code could be abstracted into a mothod. 

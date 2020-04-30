@@ -1,0 +1,19 @@
+package edu.duke.ece651.classbuilder;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import java.io.*;
+
+import org.json.*;
+
+public class classbuilderTest {
+  @Test
+  public void test_classbuilder() throws FileNotFoundException, IOException {
+    File fl = new File("/home/js/ece651spr20hwk1/ece651-hwk1/array.json");
+    InputStream is = new FileInputStream(fl);
+    ClassBuilder cb = new ClassBuilder(is);
+    cb.createAllClasses("/home/js/js896-json-651/");
+  }
+}

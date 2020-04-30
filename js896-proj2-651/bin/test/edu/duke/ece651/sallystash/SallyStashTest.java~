@@ -1,0 +1,14 @@
+package edu.duke.ece651.sallystash;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+public class SallyStashTest {
+  @Test
+  public void test_SallyStash() {
+    SallyStash sally = new SallyStash();
+    sally.showEmptyBoard();
+    assert (true == false);
+  }
+}

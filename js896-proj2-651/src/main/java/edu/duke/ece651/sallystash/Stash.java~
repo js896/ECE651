@@ -1,0 +1,80 @@
+package edu.duke.ece651.sallystash;
+
+public class Stash {
+  public int len;
+  public int vertical;
+  public int horizontal;
+  public int num_grids;
+  public char direction;
+  public char color;
+
+  public Stash(String s, char colour, int num) {
+    len = s.length();
+    vertical = s.charAt(0);
+    horizontal = Integer.parseInt(s.substring(1, 2));
+    num_grids = num;
+    direction = s.charAt(2);
+    color = colour;
+  }
+
+  public String checkValidity() {
+    String message = "good";
+
+    //check total number of input characters
+    if (len != 3) {
+      message = "Please input 3 characters\n";
+      return message;
+    }
+
+    //check if the first character is a letter
+    if (vertical < 65 || (vertical > 90 && vertical < 97) || vertical > 122) {
+      message = "The first character need to be a letter \n";
+      return message;
+    }
+
+    //check if the second character is a letter
+    try {
+      horizontal = Integer.parseInt(s.substring(1, 2));
+    }
+    catch (NumberFormatException e) {
+      message = "Second character need to be an integer \n";
+      return message;
+    }
+
+    //check if the second character is a letter
+    try {
+      horizontal = Integer.parseInt(s.substring(1, 2));
+    }
+    catch (NumberFormatException e) {
+      mess = "Second character need to be an integer \n";
+      return mess;
+    }
+
+    if ((vertical > 84 && vertical < 91) || (vertical > 116 && vertical < 123)) {
+      message = "Stack off the grid \n";
+      return message;
+    }
+
+    //if "H" or "h"
+    if (direction == 'H' || direction == 'h') {
+      if (horizontal + num_grids - 1 > 9) {
+        message = "Stack off the grid \n";
+        return message;
+      }
+      //      message = checkCollides();
+      return message;
+    }
+    else {
+      //check if it's the  lowercase
+      if (vertical > 96) {
+        vertical = vertical - 32;
+      }
+      if (vertical + num_grids - 1 > 84) {
+        message = "Stack off the grid \n";
+        return message;
+      }
+      //      message = checkCollides();
+      return message;
+    }
+  }
+}

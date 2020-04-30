@@ -1,0 +1,48 @@
+before_script:
+  - hostname
+  - whoami
+  - pwd
+  - ls -la
+  - docker --version
+
+stages:
+  - build
+  - test
+  - coverage
+
+build:
+  tags:
+    - kaidi
+  stage: build
+  script:
+    - git checkout new_evolution
+    - git pull
+    - ls -a
+    - cat Dockerfile
+    - docker build --build-arg LOCAL_USER_ID=`id -u`  --tag citest .
+
+test:
+  tags:
+    - kaidi
+  stage: test
+  script:
+    - mkdir coverage
+    - docker run --rm -v `pwd`/coverage:/coverage-out  citest scripts/test.sh
+  artifacts:
+    paths:
+      - coverage
+
+
+pages:
+  stage: coverage
+  tags:
+    - kaidi
+  dependencies:
+    - test
+  script:
+    - mv coverage public/
+  artifacts:
+    paths:
+      - public
+
+

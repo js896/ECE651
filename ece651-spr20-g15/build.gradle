@@ -1,0 +1,101 @@
+plugins {
+
+	id 'com.bmuschko.clover' version '2.2.3'
+	id 'org.openjfx.javafxplugin' version '0.0.8'
+
+}
+
+subprojects{
+	apply plugin: "java"
+	apply plugin: "com.bmuschko.clover"
+	repositories {
+		jcenter()
+		mavenCentral()
+	}
+
+	dependencies {
+		implementation 'com.google.guava:guava:28.0-jre'
+		testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.1'
+		testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
+		clover 'org.openclover:clover:4.3.1'
+		testCompile "org.mockito:mockito-core:2.+"
+	}
+	clover{
+		compiler{
+			additionalArgs = "-g:lines,source,vars"
+		}
+		report {
+			xml = true
+			html = true
+		}
+	}
+	test{
+		testLogging{
+			showStandardStreams = true
+			exceptionFormat = 'full'
+		}
+	}
+	test {
+		// Use junit platform for unit tests
+		useJUnitPlatform()
+	}
+}
+
+clover {
+	compiler{
+		additionalArgs = "-g:lines,source,vars"
+	}
+	report {
+		xml = true
+		html = true
+	}
+}
+
+// Project specific stuff
+project (':shared'){
+
+}
+project (':server'){
+	dependencies {
+		implementation project(':shared')
+	}
+}
+project (':testGUI'){
+	dependencies {
+		implementation project(':shared')
+		implementation project(':server')
+	}
+}
+
+
+tasks.register("run-server") {
+	dependsOn project('server').getTasksByName('run',false)
+	group = 'Run Client/Server'
+	description = 'Run the Server'
+}
+
+tasks.register("run-gui") {
+	dependsOn project('testGUI').getTasksByName('run',false)
+	group = 'Run Client/Server'
+	description = 'Run the GUI'
+}
+//tasks.withType(JavaCompile) {
+//	options.debug = true
+//}
+
+task resolveDependencies {
+	doLast {
+		project.rootProject.allprojects.each { subProject ->
+			subProject.buildscript.configurations.each { configuration->
+				if(configuration.canBeResolved) {
+					configuration.resolve()
+				}
+			}
+			subProject.configurations.each { configuration ->
+				if(configuration.canBeResolved) {
+					configuration.resolve()
+				}
+			}
+		}
+	}
+}
